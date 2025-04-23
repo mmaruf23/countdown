@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,14 @@
             text-align: center;
             margin-top: 50px;
         }
+
         #countdown {
             font-size: 2em;
             color: #333;
         }
     </style>
 </head>
+
 <body>
     <h1>Countdown to 13 May 2025</h1>
     <div id="countdown">Loading...</div>
@@ -38,12 +41,20 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown').innerText = 
+            document.getElementById('countdown').innerText =
                 `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+
         }
+
+        const now = new Date().getTime();
+        const timeLeft = targetDate - now;
+
+        document.getElementsByTagName('title')[0].innerText = `H-${Math.floor(timeLeft / (1000 * 60 * 60 * 24))} to 13 May 2025`;
 
         const interval = setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
 </body>
+
 </html>
